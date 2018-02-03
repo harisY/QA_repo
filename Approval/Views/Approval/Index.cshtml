@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<br /><br />
+<h1>List Approval</h1>
+<div>
+    <hr />
+    <div style="margin-left:15px">
+        <table id="employeeTable" class="ui celled table" cellspacing="0" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Quote Id</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Ship From</th>
+                    <th>Ship To</th>
+                    <th>Ship Type</th>
+                    <th>Lead Time</th>
+                    <th>Lead Day</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+@*<div class="row">
+    <div class="col-md-12">
+        <h2>List Approval</h2>
+        <hr />
+        <table id="employeeTable" class="ui celled table" cellspacing="0" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Quote Id</th>
+                    <th>Date</th>
+                    <th>Value</th>
+                    <th>Ship From</th>
+                    <th>Ship To</th>
+                    <th>Ship Type</th>
+                    <th>Lead Time</th>
+                    <th>Lead Day</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>*@
+        @* remove<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.16/css/dataTables.semanticui.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet" />
+        @section scripts{>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+            <script>
+                var Popup, dataTable;
+                $(document).ready(function () {
+                    dataTable = $("#employeeTable").DataTable({
+                        "ajax": {
+                            "url": "/Approval/GetAllApproval",
+                            "type": "GET",
+                            "datatype": "json"
+                        },
+                        "columns": [
+                            { "data": "quote_id" },
+                            { "data": "date_trans" },
+                            { "data": "quote_value" },
+                            { "data": "ship_from_city" },
+                            { "data": "ship_to_city" },
+                            { "data": "ship_type" },
+                            { "data": "lead_time" },
+                            { "data": "lead_time_days" },
+                            {
+                                "data": "quote_id", "render": function (data) {
+                                    var myUrl = '@Url.Action("Details", "Approval")/' + data;
+                                    return '<a href=\"' + myUrl + '\" class=\"btn btn-success\"> Details</a>';
+
+                                },
+                                "orderable": false,
+                                "searchable": false,
+                                "width": "75px"
+                            }
+                        ],
+                        "language": {
+                            "emptyTable": "No data found !."
+                        }
+                    });
+                });
+
+            </script>
+        }
+

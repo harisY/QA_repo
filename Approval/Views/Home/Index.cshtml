@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>QUOTATION APPROVAL</h1>
+    <p class="lead">Selamat datang @User.Identity.Name, ini adalah aplikasi untuk Customer BONATIGA JAYA ABADI melakukan Review-Aprrove data QA.</p>
+    <p><a href="@Url.Action("Index", "Approval")" class="btn btn-primary btn-lg">Go to View &raquo;</a></p>
+</div>

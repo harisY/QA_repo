@@ -1,0 +1,164 @@
+﻿@model IList<Approval.Models.ApprovalModel>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Details Approval</h3>
+@foreach (var item in Model)
+{
+<div class="row">
+    <hr />
+    <div class="col-sm-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => item.order_id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.order_id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.customer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.customer)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.goods)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.goods)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.date_trans)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.date_trans)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.quote_value)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.quote_value)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.ship_from_city)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.ship_from_city)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.ship_to_city)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.ship_to_city)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.ship_type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.ship_type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.lead_time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.lead_time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.lead_time_days)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.lead_time_days)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.term_pay_code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.term_pay_code)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.action_type_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.action_type_name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.top_days)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.top_days)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.top_desc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.top_desc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => item.status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.status)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.ship_desc_1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.ship_desc_1)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.ship_desc_2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.ship_desc_2)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => item.ship_desc_3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => item.ship_desc_3)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="col-sm-6">
+        <dl class="dl-horizontal">
+
+        </dl>
+    </div>
+</div>
+<p>
+    
+    @Html.ActionLink("Approve", "Edit", new { id = item.quote_id }, new { @class= "btn btn-success" }) | 
+    @Html.ActionLink("Cancel", "Cancel", new { id = item.quote_id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-success" })
+</p>
+}
